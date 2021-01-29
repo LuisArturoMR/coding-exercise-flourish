@@ -20,6 +20,10 @@ RSpec.describe "Events endpoints", type: :request do
       payload = JSON.parse(response.body)
       expect(payload).to_not be_empty
       expect(payload["id"]).to_not be_nil
+      expect(payload["date"]).to_not be_nil
+      expect(payload["reward_points"]).to_not be_nil
+      expect(payload["event"]).to_not be_nil
+      expect(payload["rewarded"]).to_not be_nil
       expect(response).to have_http_status(:created)
       end
 
