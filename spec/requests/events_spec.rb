@@ -9,9 +9,10 @@ RSpec.describe "Events endpoints", type: :request do
     it "should create a new event, type: UserAuthenticated" do
       req_payload = {
         event: {
-          #type: 'UserAuthenticated',
+          event: "UserAuthenticated",
           user_id: user.id,
           date: DateTime.now,
+          rewarded: false,
           reward_points: 0,
         }
       }
@@ -25,10 +26,11 @@ RSpec.describe "Events endpoints", type: :request do
     it "should return message on invalid event" do
       req_payload = {
         event: {
-          #type: 'UserAuthenticated',
+          type: 'UserAuthenticated',
           user_id: 0,
           date: DateTime.now,
           reward_points: 0,
+          rewarded: false,
         }
       }
       post '/user_events', params: req_payload

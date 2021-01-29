@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_29_171015) do
+ActiveRecord::Schema.define(version: 2021_01_29_233428) do
 
   create_table "event_logs", force: :cascade do |t|
     t.datetime "date"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2021_01_29_171015) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "event"
+    t.boolean "rewarded"
     t.index ["user_id"], name: "index_event_logs_on_user_id"
   end
 

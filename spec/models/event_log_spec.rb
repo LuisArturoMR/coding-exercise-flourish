@@ -5,5 +5,6 @@ RSpec.describe EventLog, type: :model do
     should validate_presence_of(:date)
     should validate_presence_of(:reward_points)
     should validate_presence_of(:user_id)
+    should validate_presence_of(:event)
   end
 end
