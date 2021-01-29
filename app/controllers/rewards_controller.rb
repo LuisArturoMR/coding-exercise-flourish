@@ -1,4 +1,4 @@
-
+--
 class RewardsController < ApplicationController
   # GET /rewards
   def index
