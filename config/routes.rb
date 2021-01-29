@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/health', to: 'health#health'
 
   resources :rewards, only: [:index]
+  resources :user_events, only: [:create]
 end
