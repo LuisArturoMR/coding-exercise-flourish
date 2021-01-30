@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_29_233428) do
+ActiveRecord::Schema.define(version: 2021_01_30_035040) do
 
   create_table "event_logs", force: :cascade do |t|
     t.datetime "date"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_01_29_233428) do
 
   create_table "users", force: :cascade do |t|
     t.string "email"
-    t.string "password"
+    t.string "token_auth"
     t.integer "points"
     t.float "balance"
     t.datetime "created_at", null: false
