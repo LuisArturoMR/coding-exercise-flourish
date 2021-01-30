@@ -4,8 +4,6 @@ require "byebug"
 RSpec.describe "Rewards endpoint", type: :request do
     let!(:user) { create(:user) }
     let!(:other_user) { create(:user) }
-    let!(:reward_redeemed) { create(:reward_log, user_id: user.id) }
-    let!(:other_reward_redeemed) { create(:reward_log, user_id: other_user.id) }
     let!(:auth_headers) {{'Authorization' => "Bearer #{user.token_auth}"}}
     let!(:other_auth_headers) {{'Authorization' => "Bearer #{other_user.token_auth}"}}
     let!(:reward_log) { create_list(:reward_log, 5,  user_id: user.id) }
@@ -13,19 +11,33 @@ RSpec.describe "Rewards endpoint", type: :request do
 
 
     describe "GET /rewards" do
-      context "with user authenticated" do
+      context "with user1 authenticated" do
         before { get "/rewards", headers: auth_headers}
 
         context "payload" do
           subject {payload}
-          #it {(is_expected).to eq 5}
+          it "get 5 rewards" do
+            expect(payload.size).to be(5)
+          end
         end
         context "response" do
           subject {response}
           it { is_expected.to have_http_status(:ok) }
         end
       end
-      context "with user unauthorized" do
+      context "with user2 authenticated" do
+        before { get "/rewards", headers: other_auth_headers}
+
+        context "payload" do
+          subject {payload}
+          it "get 1 rewards" do
+            expect(payload.size).to be(2)
+          end
+        end
+        context "response" do
+          subject {response}
+          it { is_expected.to have_http_status(:ok) }
+        end
       end
     end
 
