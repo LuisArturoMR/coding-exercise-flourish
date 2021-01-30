@@ -7,7 +7,9 @@ RSpec.describe "Rewards endpoint", type: :request do
     let!(:auth_headers) {{'Authorization' => "Bearer #{user.token_auth}"}}
     let!(:other_auth_headers) {{'Authorization' => "Bearer #{other_user.token_auth}"}}
     let!(:reward_log) { create_list(:reward_log, 5,  user_id: user.id) }
+    let!(:reward_log_rewarded) { create_list(:reward_log_rewarded, 2,  user_id: user.id) }
     let!(:other_reward_log) { create_list(:reward_log, 2, user_id: other_user.id) }
+    let!(:other_reward_log_rewarded) { create_list(:reward_log_rewarded, 6,  user_id: other_user.id) }
 
 
     describe "GET /rewards" do
@@ -17,7 +19,7 @@ RSpec.describe "Rewards endpoint", type: :request do
         context "payload" do
           subject {payload}
           it "get 5 rewards" do
-            expect(payload.size).to be(5)
+            expect(payload.size).to be(7)
           end
         end
         context "response" do
@@ -31,7 +33,7 @@ RSpec.describe "Rewards endpoint", type: :request do
         context "payload" do
           subject {payload}
           it "get 1 rewards" do
-            expect(payload.size).to be(2)
+            expect(payload.size).to be(8)
           end
         end
         context "response" do

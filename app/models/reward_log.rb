@@ -6,4 +6,5 @@ class RewardLog < ApplicationRecord
   validates :points_cost, presence: true
   validates :date, presence: true
   validates :user_id, presence: true
+  validates :action, presence: true
 end

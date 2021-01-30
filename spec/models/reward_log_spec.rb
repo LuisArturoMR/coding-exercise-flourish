@@ -8,6 +8,7 @@ RSpec.describe RewardLog, type: :model do
     should validate_presence_of(:points_cost)
     should validate_presence_of(:date)
     should validate_presence_of(:user_id)
+    should validate_presence_of(:action)
   end
 
 end

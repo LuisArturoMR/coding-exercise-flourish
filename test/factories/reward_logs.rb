@@ -2,8 +2,15 @@ FactoryBot.define do
   factory :reward_log do
     name { "Gift Card" }
     description { "Amazon Gift Card" }
-    points_cost { 100 }
-    date { "2021-01-29 12:05:15" }
+    points_cost { 1000 }
+    date Time.zone.now
+    action { "redeem" }
     user
+  end
+  factory :reward_log_rewarded, parent: :reward_log do
+    action { "reward" }
+    points_cost {100}
+    name { "Checked your savings 7 days!" }
+    description { "You rock! continue checking yours savings every day!" }
   end
 end
