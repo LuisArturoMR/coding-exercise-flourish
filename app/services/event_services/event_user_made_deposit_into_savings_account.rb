@@ -1,7 +1,13 @@
+require 'rest-client'
+
 module EventServices
   class EventUserMadeDepositIntoSavingsAccount
     def self.new(create_params)
       rewarded_points = 0
+      response = RestClient.get("https://my-json-server.typicode.com/LuisArturoMR/fake_api_bank/accounts", {accept: :json})
+      bank_accounts = JSON.parse(response)
+      balance = bank_accounts.select { |k,v| k['type'] == "SAVINGS_ACCOUNT" }[0]["balance"]
+      Current.user.update! ({"balance" => balance})
       if create_params[:save].to_i >= 5
         if Current.user.balance >= 50 && Current.user.points >= 700
           !rewarded_points = 1000

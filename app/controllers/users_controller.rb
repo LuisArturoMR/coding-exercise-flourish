@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     else
       redeem_params = {"name" => create_params[:name], "description" => "Amazon Gift Card in exchange 500 points", "points_cost" => 500, "date" => create_params[:date], user_id: params[:id], "action" => "redeem"}
       @redeem_log = RewardLog.create!(redeem_params)
+      Current.user.update!({"points" => Current.user.points - 500})
       render json: @redeem_log, status: :created
     end
   end

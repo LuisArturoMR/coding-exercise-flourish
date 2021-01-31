@@ -1,4 +1,5 @@
 require "rails_helper"
+require "byebug"
 
 RSpec.describe "Events endpoints", type: :request do
   let!(:user) {create(:user, points: 700, balance: 60) }
@@ -119,11 +120,16 @@ RSpec.describe "Events endpoints", type: :request do
           it { is_expected.to include("id" => 7)}
           it { is_expected.to include("event" => "UserMadeDepositIntoSavingsAccount")}
           it { is_expected.to include("reward_points" => 1000)}
-
         end
         context "response" do
           subject { response }
           it {is_expected.to have_http_status(:created)}
+        end
+        context "User balance" do
+          before { get "/user", headers: auth_headers }
+
+          subject {payload}
+          it { is_expected.to include("balance" => 1100)}
         end
       end
     end

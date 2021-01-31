@@ -17,5 +17,11 @@ RSpec.describe "User endpoints", type: :request do
       subject {response}
       it {is_expected.to have_http_status(:created)}
     end
+    context "User balance" do
+      before { get "/user", headers: auth_headers }
+
+      subject {JSON.parse(response.body)}
+      it { is_expected.to include("points" => 200)}
+    end
   end
 end
