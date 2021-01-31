@@ -15,13 +15,15 @@ class UserEventsController < ApplicationController
       @event_log = EventServices::EventUserPaidBill.new(create_params)
       render json: @event_log, status: :created
     when "UserMadeDepositIntoSavingsAccount"
+      @event_log = EventServices::EventUserMadeDepositIntoSavingsAccount.new(create_params)
+      render json: @event_log, status: :created
     else
       render json: {error: 'Event Not Found'}, status: :not_found
     end
   end
 
   def create_params
-    params.permit(:date, :event, :paid)
+    params.permit(:date, :event, :paid, :save)
   end
 
   private
