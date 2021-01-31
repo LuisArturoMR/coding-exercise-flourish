@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   resources :rewards, only: [:index]
   resources :user_events, only: [:create]
-  resources :user, only: [:index]
+  resources :user, only: [:index, :redeem]
+  post '/users/:id/redeems', to: 'users#redeems'
 end

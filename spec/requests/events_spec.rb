@@ -1,5 +1,4 @@
 require "rails_helper"
-require "byebug"
 
 RSpec.describe "Events endpoints", type: :request do
   let!(:user) {create(:user, points: 700, balance: 60) }
