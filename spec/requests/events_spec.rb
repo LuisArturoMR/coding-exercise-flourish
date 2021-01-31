@@ -13,8 +13,8 @@ RSpec.describe "Events endpoints", type: :request do
   describe "POST /user_events" do
 
     context "UserAuthenticated" do
+      before { post "/user_events", params: create_params_event, headers: auth_headers }
       context "New day Logged" do
-        before { post "/user_events", params: create_params_event, headers: auth_headers }
 
         context "payload" do
           subject {JSON.parse(response.body)}
@@ -44,20 +44,33 @@ RSpec.describe "Events endpoints", type: :request do
             it { is_expected.to have_http_status(:ok) }
           end
         end
+
+        context "User balance points" do
+          before { get "/user", headers: auth_headers }
+
+          subject {payload}
+          it { is_expected.to include("points" => 10)}
+        end
       end
 
-      context "New 7 day streak" do #toDo: Fix the test
+      context "New 7 day streak" do #toDo: Fix the test no creating new id
         before { post "/user_events", params: create_params_event, headers: auth_headers }
 
         context "payload" do
           subject {JSON.parse(response.body)}
           it { is_expected.to be_a(Object) }
-          it { is_expected.to include("id" => 6)}
-          it { is_expected.to include("reward_points" => 10)}
+          it { is_expected.to include("id" => 7)}
+          it { is_expected.to include("reward_points" => 200)}
         end
         context "response" do
           subject { response }
           it {is_expected.to have_http_status(:created)}
+        end
+        context "User balance points" do
+          before { get "/user", headers: auth_headers }
+
+          subject {payload}
+          it { is_expected.to include("points" => 210)}
         end
       end
     end

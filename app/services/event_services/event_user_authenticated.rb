@@ -11,6 +11,8 @@ module EventServices
       reward_data = { "name" => "UserAuthenticated", "description" => "You check your savings today", "points_cost" => reward_points, "date" => create_params[:date], "action" => "obtain"}
       if reward_points > 0
         @reward = Current.user.reward_logs.create!(reward_data)
+        add_points_user = Current.user.points + reward_points
+        Current.user.update! ({ "points" => add_points_user })
       end
       @event_log = Current.user.event_logs.create!(event_data)
     end

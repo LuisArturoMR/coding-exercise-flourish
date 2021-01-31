@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   resources :rewards, only: [:index]
   resources :user_events, only: [:create]
+  resources :user, only: [:index]
 end
