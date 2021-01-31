@@ -7,8 +7,16 @@ class UserEventsController < ApplicationController
 
   # POST /user_event
   def create
-    @event_log = EventServices::EventUserAuthenticated.new(create_params)
-    render json: @event_log, status: :created
+    case create_params[:event]
+    when "UserAuthenticated"
+      @event_log = EventServices::EventUserAuthenticated.new(create_params)
+      render json: @event_log, status: :created
+    when "UserPaidBill"
+
+    when "UserMadeDepositIntoSavingsAccount"
+    else
+      render json: {error: 'Event Not Found'}, status: :not_found
+    end
   end
 
   def create_params

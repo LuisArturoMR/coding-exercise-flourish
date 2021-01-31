@@ -8,7 +8,8 @@ module EventServices
         !reward_points = 10
       end
       event_data = { "date" => create_params[:date], "reward_points" => reward_points, "event" => create_params[:event], "rewarded" => true }
-
+      reward_data = { "name" => "UserAuthenticated", "description" => "UserAuthenticated Log", "points_cost" => reward_points, "date" => create_params[:date], "action" => "obtain"}
+      @reward = Current.user.reward_logs.create!(reward_data)
       @event_log = Current.user.event_logs.create!(event_data)
     end
   end
