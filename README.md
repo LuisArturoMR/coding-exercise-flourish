@@ -1,24 +1,49 @@
-# README
+# Coding Exercise LuisArturoMR -> API Reward Engine
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Install
 
-Things you may want to cover:
+### Clone the repository
 
-* Ruby version
+```shell
+git clone https://github.com/LuisArturoMR/coding-exercise-flourish.git
+cd coding-exercise-flourish
+```
 
-* System dependencies
+### Check your Ruby version
 
-* Configuration
+```shell
+ruby -v
+```
 
-* Database creation
+The ouput should start with something like `ruby 2.7.2`
 
-* Database initialization
+If not, install the right ruby version using [rbenv](https://github.com/rbenv/rbenv) (it could take a while):
 
-* How to run the test suite
+```shell
+rbenv install 2.7.2
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### Install dependencies
 
-* Deployment instructions
+Using [Bundler](https://github.com/bundler/bundler) and [Yarn](https://github.com/yarnpkg/yarn):
 
-* ...
+```shell
+bundle && yarn
+```
+
+### Initialize the database
+
+```shell
+rails db:create db:migrate db:seed
+```
+
+* Ruby version: 2.7.2
+##Run Tests
+`bundle exec rspec`
+
+##Services
+    - EngineServices
+    - AuthenticateUserService
+    - TokenGenerationService
+
+
