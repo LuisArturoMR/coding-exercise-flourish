@@ -19,7 +19,6 @@ RSpec.describe "Events endpoints", type: :request do
         context "payload" do
           subject {JSON.parse(response.body)}
           it { is_expected.to be_a(Object) }
-          it { is_expected.to include("id" => 6)}
           it { is_expected.to include("reward_points" => 10)}
         end
 
@@ -59,7 +58,6 @@ RSpec.describe "Events endpoints", type: :request do
         context "payload" do
           subject {JSON.parse(response.body)}
           it { is_expected.to be_a(Object) }
-          it { is_expected.to include("id" => 7)}
           it { is_expected.to include("reward_points" => 200)}
         end
         context "response" do
@@ -81,7 +79,6 @@ RSpec.describe "Events endpoints", type: :request do
         context "payload" do
           subject {JSON.parse(response.body)}
           it { is_expected.to be_a(Object) }
-          it { is_expected.to include("id" => 7)}
           it { is_expected.to include("event" => "UserPaidBill")}
           it { is_expected.to include("reward_points" => 0)}
 
@@ -98,7 +95,6 @@ RSpec.describe "Events endpoints", type: :request do
       context "payload" do
         subject {JSON.parse(response.body)}
         it { is_expected.to be_a(Object) }
-        it { is_expected.to include("id" => 8)}
         it { is_expected.to include("event" => "UserPaidBill")}
         it { is_expected.to include("reward_points" => 40)}
 
@@ -117,7 +113,6 @@ RSpec.describe "Events endpoints", type: :request do
         context "payload" do
           subject {JSON.parse(response.body)}
           it { is_expected.to be_a(Object) }
-          it { is_expected.to include("id" => 7)}
           it { is_expected.to include("event" => "UserMadeDepositIntoSavingsAccount")}
           it { is_expected.to include("reward_points" => 1000)}
         end
