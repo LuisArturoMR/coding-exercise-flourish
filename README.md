@@ -47,9 +47,17 @@ rails db:create db:migrate db:seed
     - TokenGenerationService
 
 ##Documentation
+
 ###Entities and Relations (DB)
 https://docs.google.com/spreadsheets/d/1rCmnRmbDVY1lg7vO4utdypHIkTJ-GryTsScCGDaZrTw/edit?usp=sharing
 
 ###API Documentation
 https://documenter.getpostman.com/view/2735195/TW6zG7AB#95a121c8-0649-46b3-ae26-4c9348f1d5b8
 
+###DummyData(production)
+* User1: pedro@flourishsavings.com
+    * Authorization: `Bearer 9cc62f259bff5a3a5630adf98d5867c4`
+* User2: nadilson@flourishsavings.com
+    * Authorization: `Bearer a064507147b236176c73a2f7579537b1`
+* User3: enrique@flourishsavings.com
+    * Authorization: `Bearer ddd0d232c0eaf76824627977c3887346`
