@@ -57,6 +57,14 @@ https://documenter.getpostman.com/view/2735195/TW6zG7AB#95a121c8-0649-46b3-ae26-
 ## Production
 API: https://coding-exercise-luis-arturo.herokuapp.com
 
+> If you enter directly to the url you will see a page not found, please use the endpoints in API Documentation ⚠️
+
+example https://coding-exercise-luis-arturo.herokuapp.com/health
+
+example https://coding-exercise-luis-arturo.herokuapp.com/user (auth token is required)
+
+> Heroku needs a little time to wake up the api ⚠️
+
 ### Users to use in production
 * User1: pedro@flourishsavings.com
     * Authorization: `Bearer 9cc62f259bff5a3a5630adf98d5867c4`
@@ -68,3 +76,4 @@ API: https://coding-exercise-luis-arturo.herokuapp.com
 ### TO-DO
 * Correct path to start with /api/v1/..
 * UserEvent UserAuthenticated once by day
+* Page not found 404
