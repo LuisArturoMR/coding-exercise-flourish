@@ -38,26 +38,33 @@ rails db:create db:migrate db:seed
 ```
 
 * Ruby version: 2.7.2
-##Run Tests
+## Run Tests
 `bundle exec rspec`
 
-##Services
+## Services
     - EngineServices
     - AuthenticateUserService
     - TokenGenerationService
 
-##Documentation
+## Documentation
 
-###Entities and Relations (DB)
+### Entities and Relations (DB)
 https://docs.google.com/spreadsheets/d/1rCmnRmbDVY1lg7vO4utdypHIkTJ-GryTsScCGDaZrTw/edit?usp=sharing
 
-###API Documentation
+### API Documentation
 https://documenter.getpostman.com/view/2735195/TW6zG7AB#95a121c8-0649-46b3-ae26-4c9348f1d5b8
 
-###DummyData(production)
+## Production
+API: https://coding-exercise-luis-arturo.herokuapp.com
+
+### Users to use in production
 * User1: pedro@flourishsavings.com
     * Authorization: `Bearer 9cc62f259bff5a3a5630adf98d5867c4`
 * User2: nadilson@flourishsavings.com
     * Authorization: `Bearer a064507147b236176c73a2f7579537b1`
 * User3: enrique@flourishsavings.com
     * Authorization: `Bearer ddd0d232c0eaf76824627977c3887346`
+
+### TO-DO
+* Correct path to start with /api/v1/..
+* UserEvent UserAuthenticated once by day
