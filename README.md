@@ -46,4 +46,10 @@ rails db:create db:migrate db:seed
     - AuthenticateUserService
     - TokenGenerationService
 
+##Documentation
+###Entities and Relations (DB)
+https://docs.google.com/spreadsheets/d/1rCmnRmbDVY1lg7vO4utdypHIkTJ-GryTsScCGDaZrTw/edit?usp=sharing
+
+###API Documentation
+https://documenter.getpostman.com/view/2735195/TW6zG7AB#95a121c8-0649-46b3-ae26-4c9348f1d5b8
 
