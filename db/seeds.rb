@@ -5,4 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-FactoryBot.create(:user)
+User.create({"points" => 680, "email" => "pedro@flourishsavings.com", "balance" => 600})
+User.create({"points" => 685, "email" => "nadilson@flourishsavings.com", "balance" => 610})
+User.create({"points" => 690, "email" => "enrique@flourishsavings.com", "balance" => 620})
