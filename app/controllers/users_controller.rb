@@ -24,7 +24,10 @@ class UsersController < ApplicationController
   private
 
   def authenticate_user!
-    AuthenticateUserService.authenticate_user(request.headers)
+    @auth = AuthenticateUserService.authenticate_user(request.headers)
+    if @auth == "unauthorized"
+      render json: {error: 'Unauthorized'}, status: :unauthorized
+    end
   end
 
 end

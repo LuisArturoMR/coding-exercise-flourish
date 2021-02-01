@@ -1,3 +1,4 @@
+
 class AuthenticateUserService
   def self.authenticate_user(headers)
     token_regex = /Bearer (\w+)/
@@ -9,6 +10,6 @@ class AuthenticateUserService
         return
       end
     end
-    render json: {error: 'Unauthorized'}, status: :unauthorized
+    return "unauthorized"
   end
 end
